@@ -13,7 +13,7 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.2.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
@@ -21,11 +21,11 @@ Source1:	%{mod_conf}
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 Requires(pre):	apache-conf >= %{apache_version}
-Requires(pre):	apache-mpm-prefork >= %{apache_version}
+Requires(pre):	apache-mpm >= %{apache_version}
 Requires(pre):	apache-base >= %{apache_version}
 Requires(pre):	apache-modules >= %{apache_version}
 Requires:	apache-conf >= %{apache_version}
-Requires:	apache-mpm-prefork >= %{apache_version}
+Requires:	apache-mpm >= %{apache_version}
 Requires:	apache-base >= %{apache_version}
 Requires:	apache-modules >= %{apache_version}
 Requires(post): %{libname} >= %{epoch}:%{php_version}
@@ -95,7 +95,6 @@ BuildRequires:	dos2unix
 Provides:	php mod_php
 Obsoletes:	php mod_php
 Conflicts:	apache-mpm-worker >= %{apache_version}
-Conflicts:	apache-mpm-itk >= %{apache_version}
 Conflicts:	apache-mpm-event >= %{apache_version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Epoch:		%{epoch}
