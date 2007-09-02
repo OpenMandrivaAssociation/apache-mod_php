@@ -12,8 +12,8 @@
 
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.2.3
-Release:	%mkrel 4
+Version:	5.2.4
+Release:	%mkrel 1
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
@@ -85,7 +85,7 @@ Requires:	php-hash >= %{php_version}
 Requires:	php-xmlreader >= %{php_version}
 Requires:	php-xmlwriter >= %{php_version}
 Requires:	php-simplexml >= %{php_version}
-Requires:	php-suhosin >= 0.9.10
+Requires:	php-suhosin >= 0.9.20
 Requires:	php-filter >= 0.11.0
 Requires:	php-json >= 1.2.1
 Requires:	php-timezonedb >= 2007.3
