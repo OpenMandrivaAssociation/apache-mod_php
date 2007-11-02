@@ -7,13 +7,13 @@
 %define epoch 3
 %define major 5
 %define libname %mklibname php5_common %{major}
-%define apache_version 2.2.4
+%define apache_version 2.2.6
 %define php_version %{version}
 
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.2.4
-Release:	%mkrel 2
+Version:	5.2.5
+Release:	%mkrel 0.RC2.1
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
@@ -88,7 +88,7 @@ Requires:	php-simplexml >= %{php_version}
 Requires:	php-suhosin >= 0.9.20
 Requires:	php-filter >= 0.11.0
 Requires:	php-json >= 1.2.1
-Requires:	php-timezonedb >= 2007.3
+Requires:	php-timezonedb >= 2007.8
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	php-devel >= %{epoch}:%{php_version}
 BuildRequires:	dos2unix
