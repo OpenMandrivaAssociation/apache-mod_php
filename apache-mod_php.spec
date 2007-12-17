@@ -96,7 +96,6 @@ Provides:	php mod_php
 Obsoletes:	php mod_php
 Conflicts:	apache-mpm-worker >= %{apache_version}
 Conflicts:	apache-mpm-event >= %{apache_version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Epoch:		%{epoch}
 
 %description
