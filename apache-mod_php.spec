@@ -13,7 +13,7 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.2.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
@@ -45,9 +45,9 @@ Requires(post):	php-hash >= %{php_version}
 Requires(post):	php-xmlreader >= %{php_version}
 Requires(post):	php-xmlwriter >= %{php_version}
 Requires(post):	php-simplexml >= %{php_version}
-Requires(post):	php-suhosin >= 0.9.10
-Requires(post):	php-filter >= 0.11.0
-Requires(post):	php-json >= 1.2.1
+Requires(post):	php-suhosin >= 0.9.23
+Requires(post):	php-filter >= 0:%{php_version}
+Requires(post):	php-json >= 0:%{php_version}
 Requires(preun): %{libname} >= %{epoch}:%{php_version}
 Requires(preun): php-ctype >= %{epoch}:%{php_version}
 Requires(preun): php-ftp >= %{epoch}:%{php_version}
@@ -65,9 +65,9 @@ Requires(preun): php-hash >= %{php_version}
 Requires(preun): php-xmlreader >= %{php_version}
 Requires(preun): php-xmlwriter >= %{php_version}
 Requires(preun): php-simplexml >= %{php_version}
-Requires(preun): php-suhosin >= 0.9.10
-Requires(preun): php-filter >= 0.11.0
-Requires(preun): php-json >= 1.2.1
+Requires(preun): php-suhosin >= 0.9.23
+Requires(preun): php-filter >= 0:%{php_version}
+Requires(preun): php-json >= 0:%{php_version}
 Requires:	%{libname} >= %{epoch}:%{php_version}
 Requires:	php-ctype >= %{epoch}:%{php_version}
 Requires:	php-ftp >= %{epoch}:%{php_version}
@@ -85,10 +85,9 @@ Requires:	php-hash >= %{php_version}
 Requires:	php-xmlreader >= %{php_version}
 Requires:	php-xmlwriter >= %{php_version}
 Requires:	php-simplexml >= %{php_version}
-Requires:	php-suhosin >= 0.9.20
-Requires:	php-filter >= 0.11.0
-Requires:	php-json >= 1.2.1
-Requires:	php-timezonedb >= 2007.9
+Requires:	php-suhosin >= 0.9.23
+Requires:	php-filter >= 0:%{php_version}
+Requires:	php-json >= 0:%{php_version}
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	php-devel >= %{epoch}:%{php_version}
 BuildRequires:	dos2unix
