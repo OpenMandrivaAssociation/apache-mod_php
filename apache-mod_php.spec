@@ -13,7 +13,7 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.2.5
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
