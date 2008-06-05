@@ -13,7 +13,7 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.2.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
@@ -92,7 +92,7 @@ Provides:	php mod_php
 Obsoletes:	php mod_php
 Conflicts:	apache-mpm-worker >= %{apache_version}
 Conflicts:	apache-mpm-event >= %{apache_version}
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Epoch:		%{epoch}
 
 %description
