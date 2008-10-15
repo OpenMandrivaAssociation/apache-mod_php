@@ -12,8 +12,8 @@
 
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.2.6
-Release:	%mkrel 3
+Version:	5.2.7
+Release:	%mkrel 0.0.RC1.1
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
@@ -131,7 +131,7 @@ cp %{SOURCE1} %{mod_conf}
     php_functions.c internal_functions.c
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/apache-extramodules
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
@@ -152,7 +152,7 @@ if [ "$1" = "0" ]; then
 fi
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
