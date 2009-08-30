@@ -13,78 +13,36 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.3.0
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/ 
 Source1:	%{mod_conf}
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
-Requires(pre):	apache-conf >= %{apache_version}
-Requires(pre):	apache-mpm >= %{apache_version}
-Requires(pre):	apache-base >= %{apache_version}
-Requires(pre):	apache-modules >= %{apache_version}
-Requires:	apache-conf >= %{apache_version}
-Requires:	apache-mpm >= %{apache_version}
-Requires:	apache-base >= %{apache_version}
-Requires:	apache-modules >= %{apache_version}
-Requires(post): %{libname} >= %{epoch}:%{php_version}
-Requires(post): php-ctype >= %{epoch}:%{php_version}
-Requires(post): php-ftp >= %{epoch}:%{php_version}
-Requires(post): php-gettext >= %{epoch}:%{php_version}
-Requires(post): php-ini >= %{php_version}
-Requires(post): php-pcre >= %{epoch}:%{php_version}
-Requires(post): php-posix >= %{epoch}:%{php_version}
-Requires(post): php-session >= %{epoch}:%{php_version}
-Requires(post): php-sysvsem >= %{epoch}:%{php_version}
-Requires(post):	php-sysvshm >= %{epoch}:%{php_version}
-Requires(post):	php-openssl >= %{epoch}:%{version}
-Requires(post):	php-zlib >= %{epoch}:%{version}
-Requires(post): php-tokenizer >= %{php_version}
-Requires(post):	php-hash >= %{php_version}
-Requires(post):	php-xmlreader >= %{php_version}
-Requires(post):	php-xmlwriter >= %{php_version}
-Requires(post):	php-suhosin >= 0.9.29
-Requires(post):	php-filter >= 0:%{php_version}
-Requires(post):	php-json >= 0:%{php_version}
-Requires(preun): %{libname} >= %{epoch}:%{php_version}
-Requires(preun): php-ctype >= %{epoch}:%{php_version}
-Requires(preun): php-ftp >= %{epoch}:%{php_version}
-Requires(preun): php-gettext >= %{epoch}:%{php_version}
-Requires(preun): php-ini >= %{php_version}
-Requires(preun): php-pcre >= %{epoch}:%{php_version}
-Requires(preun): php-posix >= %{epoch}:%{php_version}
-Requires(preun): php-session >= %{epoch}:%{php_version}
-Requires(preun): php-sysvsem >= %{epoch}:%{php_version}
-Requires(preun): php-sysvshm >= %{epoch}:%{php_version}
-Requires(preun): php-openssl >= %{epoch}:%{version}
-Requires(preun): php-zlib >= %{epoch}:%{version}
-Requires(preun): php-tokenizer >= %{php_version}
-Requires(preun): php-hash >= %{php_version}
-Requires(preun): php-xmlreader >= %{php_version}
-Requires(preun): php-xmlwriter >= %{php_version}
-Requires(preun): php-suhosin >= 0.9.29
-Requires(preun): php-filter >= 0:%{php_version}
-Requires(preun): php-json >= 0:%{php_version}
 Requires:	%{libname} >= %{epoch}:%{php_version}
+Requires:	apache-base >= %{apache_version}
+Requires:	apache-conf >= %{apache_version}
+Requires:	apache-modules >= %{apache_version}
+Requires:	apache-mpm >= %{apache_version}
 Requires:	php-ctype >= %{epoch}:%{php_version}
+Requires:	php-filter >= %{epoch}:%{php_version}
 Requires:	php-ftp >= %{epoch}:%{php_version}
 Requires:	php-gettext >= %{epoch}:%{php_version}
+Requires:	php-hash >= %{epoch}:%{php_version}
 Requires:	php-ini >= %{php_version}
+Requires:	php-json >= %{epoch}:%{php_version}
+Requires:	php-openssl >= %{epoch}:%{version}
 Requires:	php-pcre >= %{epoch}:%{php_version}
 Requires:	php-posix >= %{epoch}:%{php_version}
 Requires:	php-session >= %{epoch}:%{php_version}
+Requires:	php-suhosin >= 0.9.29
 Requires:	php-sysvsem >= %{epoch}:%{php_version}
 Requires:	php-sysvshm >= %{epoch}:%{php_version}
-Requires:	php-openssl >= %{epoch}:%{version}
-Requires:	php-zlib >= %{epoch}:%{version}
-Requires:	php-tokenizer >= %{php_version}
-Requires:	php-hash >= %{php_version}
-Requires:	php-xmlreader >= %{php_version}
-Requires:	php-xmlwriter >= %{php_version}
-Requires:	php-suhosin >= 0.9.29
-Requires:	php-filter >= 0:%{php_version}
-Requires:	php-json >= 0:%{php_version}
+Requires:	php-tokenizer >= %{epoch}:%{php_version}
+Requires:	php-xmlreader >= %{epoch}:%{php_version}
+Requires:	php-xmlwriter >= %{epoch}:%{php_version}
+Requires:	php-zlib >= %{epoch}:%{php_version}
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	php-devel >= %{epoch}:%{php_version}
 BuildRequires:	dos2unix
