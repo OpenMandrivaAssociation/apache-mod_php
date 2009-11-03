@@ -43,6 +43,7 @@ Requires:	php-tokenizer >= %{epoch}:%{php_version}
 Requires:	php-xmlreader >= %{epoch}:%{php_version}
 Requires:	php-xmlwriter >= %{epoch}:%{php_version}
 Requires:	php-zlib >= %{epoch}:%{php_version}
+Requires:	php-xml >= %{epoch}:%{version}
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	php-devel >= %{epoch}:%{php_version}
 BuildRequires:	dos2unix
