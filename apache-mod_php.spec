@@ -13,10 +13,10 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.3.2
-Release:	%mkrel 0.0.RC2.2
+Release:	%mkrel 0.0.RC3.1
 Group:		System/Servers
 License:	PHP License
-URL:		http://www.php.net/ 
+URL:		http://www.php.net/
 Source1:	%{mod_conf}
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
