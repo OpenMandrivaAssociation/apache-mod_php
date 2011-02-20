@@ -7,13 +7,13 @@
 %define epoch 3
 %define major 5
 %define libname %mklibname php5_common %{major}
-%define apache_version 2.2.8
+%define apache_version 2.2.0
 %define php_version %{version}
 
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.3.5
-Release:	%mkrel 1
+Version:	5.3.6
+Release:	%mkrel 0.0.RC1.1
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/
