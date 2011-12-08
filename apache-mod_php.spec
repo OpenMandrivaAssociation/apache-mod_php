@@ -75,7 +75,7 @@ cp %{_usrsrc}/php-devel/internal_functions.c .
 cp %{_includedir}/php/ext/date/lib/timelib_config.h .
 
 # strip away annoying ^M
-find -type f -exec dos2unix -U {} \;
+find -type f -exec dos2unix {} \;
 
 cp %{SOURCE1} %{mod_conf}
 
