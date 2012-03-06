@@ -1,19 +1,18 @@
 #Module-Specific definitions
 %define mod_name mod_php
-%define mod_conf 70_%{mod_name}.conf
-%define mod_so %{mod_name}5.so
+%define load_order 170
 %define extname apache2handler
 
 %define epoch 3
 %define major 5
 %define libname %mklibname php5_common %{major}
-%define apache_version 2.2.0
+%define apache_version 2.4.0
 %define php_version %{version}
 
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.3.10
-Release:	%mkrel 2
+Release:	3
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/
@@ -22,7 +21,6 @@ Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 Requires:	%{libname} >= %{epoch}:%{php_version}
 Requires:	apache-base >= %{apache_version}
-Requires:	apache-conf >= %{apache_version}
 Requires:	apache-modules >= %{apache_version}
 Requires:	apache-mpm >= %{apache_version}
 Requires:	php-ctype >= %{epoch}:%{php_version}
@@ -52,7 +50,6 @@ Obsoletes:	php mod_php
 Conflicts:	apache-mpm-worker >= %{apache_version}
 Conflicts:	apache-mpm-event >= %{apache_version}
 Requires:	php-timezonedb >= 3:2009.10
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Epoch:		%{epoch}
 
 %description
@@ -77,11 +74,9 @@ cp %{_includedir}/php/ext/date/lib/timelib_config.h .
 # strip away annoying ^M
 find -type f -exec dos2unix {} \;
 
-cp %{SOURCE1} %{mod_conf}
-
 %build
 
-%{_sbindir}/apxs \
+apxs \
     `php-config --includes` \
     `apr-1-config --link-ld --libs` \
     `xml2-config --cflags` \
@@ -91,30 +86,30 @@ cp %{SOURCE1} %{mod_conf}
     php_functions.c internal_functions.c
 
 %install
-rm -rf %{buildroot}
 
-install -d %{buildroot}%{_libdir}/apache-extramodules
+install -d %{buildroot}%{_libdir}/apache
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 
-install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache-extramodules/
-install -m0644 %{mod_conf} %{buildroot}%{_sysconfdir}/httpd/modules.d/%{mod_conf}
+install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache/
+
+cat > %{buildroot}%{_sysconfdir}/httpd/modules.d/%{load_order}_%{mod_name}.conf << EOF
+LoadModule php5_module %{_libdir}/%{mod_name}.so
+
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php .phtml
+AddType application/x-httpd-php-source .phps
+
+DirectoryIndex index.php index.phtml
+EOF
 
 %post
-if [ -f %{_var}/lock/subsys/httpd ]; then
-    %{_initrddir}/httpd restart 1>&2;
-fi
+/bin/systemctl daemon-reload >/dev/null 2>&1 || :
 
 %postun
 if [ "$1" = "0" ]; then
-    if [ -f %{_var}/lock/subsys/httpd ]; then
-	%{_initrddir}/httpd restart 1>&2
-    fi
+    /bin/systemctl daemon-reload >/dev/null 2>&1 || :
 fi
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
-%attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/%{mod_conf}
-%attr(0755,root,root) %{_libdir}/apache-extramodules/%{mod_so}
+%attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/*.conf
+%attr(0755,root,root) %{_libdir}/apache/*.so
