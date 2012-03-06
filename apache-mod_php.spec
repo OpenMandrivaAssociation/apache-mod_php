@@ -16,7 +16,6 @@ Release:	3
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/
-Source1:	%{mod_conf}
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 Requires:	%{libname} >= %{epoch}:%{php_version}
