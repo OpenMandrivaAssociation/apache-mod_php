@@ -9,7 +9,7 @@
 %define apache_version 2.4.0
 %define php_version %{version}
 
-Summary:	The PHP5 HTML-embedded scripting language for use with apache
+Summary:	The PHP HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.3.10
 Release:	4
@@ -57,8 +57,8 @@ developers to write dynamically generated web pages. PHP5 also offers built-in
 database integration for several commercial and non-commercial database
 management systems, so writing a database-enabled web page with PHP5 is fairly
 simple. The most common use of PHP coding is probably as a replacement for CGI
-scripts. The %{name} module enables the apache web server to understand and
-process the embedded PHP language in web pages.
+scripts. The %{name} module enables the apache web server to understand
+and process the embedded PHP language in web pages.
 
 This package contains PHP version 5. You'll also need to install the apache web
 server.
