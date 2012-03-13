@@ -70,6 +70,10 @@ cp -dpR %{_usrsrc}/php-devel/sapi/%{extname}/* .
 cp %{_usrsrc}/php-devel/internal_functions.c .
 cp %{_includedir}/php/ext/date/lib/timelib_config.h .
 
+# drop php5 here
+perl -pi -e "s|php5_module|php_module|g" *
+cp mod_php5.c mod_php.c
+
 # strip away annoying ^M
 find -type f -exec dos2unix {} \;
 
@@ -81,7 +85,7 @@ apxs \
     `xml2-config --cflags` \
     -I%{_usrsrc}/php-devel \
     -I. -lphp5_common \
-    -c mod_php5.c sapi_apache2.c apache_config.c \
+    -c mod_php.c sapi_apache2.c apache_config.c \
     php_functions.c internal_functions.c
 
 %install
@@ -92,7 +96,7 @@ install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache/
 
 cat > %{buildroot}%{_sysconfdir}/httpd/modules.d/%{load_order}_%{mod_name}.conf << EOF
-LoadModule php5_module %{_libdir}/apache/%{mod_name}.so
+LoadModule php_module %{_libdir}/apache/%{mod_name}.so
 
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php .phtml
