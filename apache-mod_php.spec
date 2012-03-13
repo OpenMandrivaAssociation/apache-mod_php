@@ -12,7 +12,7 @@
 Summary:	The PHP5 HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
 Version:	5.3.10
-Release:	3
+Release:	4
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/
@@ -92,7 +92,7 @@ install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache/
 
 cat > %{buildroot}%{_sysconfdir}/httpd/modules.d/%{load_order}_%{mod_name}.conf << EOF
-LoadModule php5_module %{_libdir}/%{mod_name}.so
+LoadModule php5_module %{_libdir}/apache/%{mod_name}.so
 
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php .phtml
