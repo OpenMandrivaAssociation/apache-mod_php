@@ -11,7 +11,7 @@
 
 Summary:	The PHP HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.4.1
+Version:	5.4.3
 Release:	1
 Group:		System/Servers
 License:	PHP License
