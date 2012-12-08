@@ -3,7 +3,6 @@
 %define load_order 170
 %define extname apache2handler
 
-%define epoch 3
 %define major 5
 %define libname %mklibname php5_common %{major}
 %define apache_version 2.4.0
@@ -11,8 +10,9 @@
 
 Summary:	The PHP HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.4.5
+Version:	5.4.9
 Release:	1
+Epoch:		3
 Group:		System/Servers
 License:	PHP License
 URL:		http://www.php.net/
@@ -44,12 +44,10 @@ Requires:	php-xml >= %{epoch}:%{version}
 BuildRequires:	apache-devel >= %{apache_version}
 BuildRequires:	php-devel >= %{epoch}:%{php_version}
 BuildRequires:	dos2unix
-Provides:	php mod_php
-Obsoletes:	php mod_php
+Provides:	mod_php = %{EVRD}
 Conflicts:	apache-mpm-worker >= %{apache_version}
 Conflicts:	apache-mpm-event >= %{apache_version}
 Requires:	php-timezonedb >= 3:2009.10
-Epoch:		%{epoch}
 
 %description
 PHP5 is an HTML-embedded scripting language. PHP5 attempts to make it easy for
@@ -78,7 +76,6 @@ cp mod_php5.c mod_php.c
 find -type f -exec dos2unix {} \;
 
 %build
-
 apxs \
     `php-config --includes` \
     `apr-1-config --link-ld --libs` \
@@ -89,7 +86,6 @@ apxs \
     php_functions.c internal_functions.c
 
 %install
-
 install -d %{buildroot}%{_libdir}/apache
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 
@@ -116,3 +112,5 @@ fi
 %files
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/*.conf
 %attr(0755,root,root) %{_libdir}/apache/*.so
+
+
