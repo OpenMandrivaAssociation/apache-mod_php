@@ -10,7 +10,7 @@
 
 Summary:	The PHP HTML-embedded scripting language for use with apache
 Name:		apache-%{mod_name}
-Version:	5.4.9
+Version:	5.5.5
 Release:	1
 Epoch:		3
 Group:		System/Servers
@@ -112,5 +112,3 @@ fi
 %files
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/*.conf
 %attr(0755,root,root) %{_libdir}/apache/*.so
-
-
